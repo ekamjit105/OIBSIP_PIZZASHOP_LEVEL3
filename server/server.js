@@ -29,6 +29,7 @@ app.use(morgan('dev'))
 app.use("/api/pizzas",require("./routes/pizzaRoute"));
 app.use("/api/users",require("./routes/userRoute"));
 app.use("/api/orders",require("./routes/orderRoute"));
+app.use("/api/inventory",require("./routes/inventoryRoute"));
 
 app.get('/',(req,res)=>{
     res.send("<h1>hello from node server via nodemon</h1>")

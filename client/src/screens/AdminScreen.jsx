@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { Row, Col, Container, Button, ButtonGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import AddNewPizza from "../components/Admin/AddNewPizza";
 import OrderList from "../components/Admin/OrderList";
 import Pizzaslist from "../components/Admin/Pizzaslist";
 import Userlist from "../components/Admin/Userlist";
 import EditPizza from "./../components/Admin/EditPizza";
+import inventory from "../components/Admin/Inventory";
+import { getAllStock } from "../actions/inventoryAction";
+import Inventory from "../components/Admin/Inventory";
+
 const AdminScreen = ({ history }) => {
   const userState = useSelector((state) => state.loginReducer);
   const { currentUser } = userState;
@@ -15,6 +19,9 @@ const AdminScreen = ({ history }) => {
       window.location.href = "/";
     }
   }, [currentUser]);
+
+
+
   return (
     <>
       <Container>
@@ -22,8 +29,15 @@ const AdminScreen = ({ history }) => {
           <h1 className="text-center bg-dark text-light p-2">Admin Panel</h1>
           <Col md={2}>
             <ButtonGroup vertical style={{ minHeight: "400px" }}>
+              
+              <Button onClick={() => history.push("/admin/orderlist")}>
+                All Orders
+              </Button>
               <Button onClick={() => history.push("/admin/userlist")}>
                 All Users
+              </Button>
+              <Button onClick={() => history.push("/admin/inventory")}>
+                Inventory
               </Button>
               <Button onClick={() => history.push("/admin/pizzalist")}>
                 All Pizzas
@@ -31,9 +45,7 @@ const AdminScreen = ({ history }) => {
               <Button onClick={() => history.push("/admin/addnewpizza")}>
                 Add New Pizza
               </Button>
-              <Button onClick={() => history.push("/admin/orderlist")}>
-                All Orders
-              </Button>
+              
             </ButtonGroup>
           </Col>
           <Col md={10}>
@@ -46,6 +58,7 @@ const AdminScreen = ({ history }) => {
                 exact
               />
               <Route path="/admin/pizzalist" component={Pizzaslist} exact />
+              <Route path="/admin/inventory" component={Inventory} exact />
               <Route path="/admin/addnewpizza" component={AddNewPizza} exact />
               <Route path="/admin/orderlist" component={OrderList} exact />
             </Switch>

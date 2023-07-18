@@ -11,6 +11,7 @@ import { registerReducer, loginReducer,
     getAllUsersReducer, } from "./reducers/userReducer"
 import { placeOrderReducer,myOrdersReducer,
     allUserOrdersReducer, } from "./reducers/orderReducer"
+import { getAllStockReducer } from "./reducers/inventoryReducer"
 
 const rootReducer = combineReducers({
     getAllPizzasReducer:getAllPizzasReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
     updatePizzaByIdReducer: updatePizzaByIdReducer,
     allUserOrdersReducer: allUserOrdersReducer,
     getAllUsersReducer: getAllUsersReducer,
+    getAllStockReducer :getAllStockReducer , 
 });
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
