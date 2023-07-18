@@ -1,0 +1,15 @@
+{
+    "name": "Indi Chicken Tikka",
+    "variants": ["small", "medium", "large"],
+    "prices": [
+      {
+        "small": 250,
+        "medium": 380,
+        "large": 500
+      }
+    ],
+    "category": "nonveg",
+    "image": "/images/IndianTandooriChickenTikka.jpg",
+    "description":
+      "The wholesome flavour of tandoori masala with Chicken tikka, onion, red paprika & mint mayo"
+  }
