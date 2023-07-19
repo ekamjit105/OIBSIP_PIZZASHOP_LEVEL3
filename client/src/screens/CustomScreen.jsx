@@ -40,7 +40,9 @@ const CustomScreen = () => {
             name:"Custom Fresh pizza",
             _id:Math.random(),
             image:"/images/custom.jpg",
-            prices:[{"medium":tprice}]
+            prices:[{"medium":tprice}],
+            description:"Base : "+base+", Sauce : "+sauce+", Cheese : "+cheese+", Topping : "+veggies,
+            
         }
         var variant="medium";
         dispatch(addToCart(pobj,1,variant))

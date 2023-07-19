@@ -24,6 +24,7 @@ const CartScreen =()=>{
                         <Row style={{backgroundColor:'lightgrey', margin:'2%', padding:'2%'}}>
                         <Col md={7}>
                             <h4>{item.name} ({item.variant})</h4>
+                            {item.name==="Custom Fresh pizza"?<h6>Description: <br></br>{item.description}</h6>:<h1></h1>}
                             <h5>Quantity : &nbsp;
                             
                             <FaPlusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.variant))}}/> 

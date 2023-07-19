@@ -6,7 +6,8 @@ export const addToCart = (pizza,quantity,variant)=>async(dispatch,getState)=>{
       variant:variant,
       quantity:Number(quantity),
       prices:pizza.prices,
-      price: pizza.prices[0][variant]*quantity,  
+      price: pizza.prices[0][variant]*quantity,
+      description:pizza.description?pizza.description:"",  
     };
 
     if(quantity<1)

@@ -17,4 +17,7 @@ router.get("/getAllStock", async (req, res) => {
 });
 
 
+
+
+
 module.exports = router;
