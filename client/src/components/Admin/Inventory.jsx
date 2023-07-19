@@ -18,11 +18,15 @@ const Inventory = () => {
     <>
     <h1>Inventory</h1>
     <br></br>
+
+    {stock && stock.map((item) => (
+      
     <div>
+    <h1>{item.name}</h1>
+          
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Item</th>
                 <th>Variant</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -30,33 +34,40 @@ const Inventory = () => {
               </tr>
             </thead>
             <tbody>
-
-            {stock &&
-                stock.map((item) => (
+            {[...Array(item.variants.length)].map((x,i) =>
+            (
+                
                  <tr>
                     <td>
-                      {item.name}
+                    
+                    {item.variants[i]}
                     </td>
 
                     <td>
-                        
+                    {item.prices[0][item.variants[i]]}
                     </td>
                     
                     <td>
-                     
+                    {item.varqty[0][item.variants[i]]}
                      
                     </td>
-                    <td></td>
                     <td>
-                      
-                    </td>
+                    {item.varqty[0][item.variants[i]]<=10?<h4 style={{"color":"red"}}>LOW</h4>:<h5 style={{"color":"green"}}>Sufficient</h5>
+                                     
+                    }</td>
+                    
                   </tr>
-                ))}
+               ))}
             </tbody>
           </Table>
+      
         </div>
+
+        ))} 
     </>
   )
 }
 
 export default Inventory
+
+

@@ -24,13 +24,17 @@ const CartScreen =()=>{
                         <Row style={{backgroundColor:'lightgrey', margin:'2%', padding:'2%'}}>
                         <Col md={7}>
                             <h4>{item.name} ({item.variant})</h4>
-                            <h5>Quantity : &nbsp;<FaPlusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.variant))}}/> 
+                            <h5>Quantity : &nbsp;
+                            
+                            <FaPlusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.variant))}}/> 
 
                             &nbsp;{item.quantity}&nbsp;
 
                             <FaMinusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity-1,item.variant))}}/></h5>
                             
                             <h5>Price : {item.prices[0][item.variant]}/- X {item.quantity}</h5><h4>Rs {item.price}/-</h4>
+                        
+                        
                         </Col>
                         <Col md={4}>
                         <img src={item.image} alt="" style={{width:'150px', height:'100px'}}></img>

@@ -6,9 +6,8 @@ const inventoryModel = require("../models/inventoryModel");
 //GET ALL STOCK || @GET REQUEST
 router.get("/getAllStock", async (req, res) => {
   try {
-    console.log("before getting stock")
     const stock = await inventoryModel.find({});
-    console.log("after getting stock")
+    console.log("found stock.. ")
     console.log(stock)
     res.send(stock);
   } catch (error) {

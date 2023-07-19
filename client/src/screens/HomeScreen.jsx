@@ -8,7 +8,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 //OR
 import{getAllPizzas} from '../actions/pizzaAction' 
-
+import { getAllStock } from '../actions/inventoryAction'
 //componenets imported
 import Pizza from '../components/Pizza' //pizza card in which data is sent as props
 
@@ -19,6 +19,13 @@ const HomeScreen = () => {
     useEffect(()=>{
         dispatch(getAllPizzas())//dispatch action
     }, [dispatch])
+
+    useEffect(()=>{
+        dispatch(getAllStock())//dispatch action
+    }, [dispatch])
+
+
+
     const pizzastate = useSelector((state)=>state.getAllPizzasReducer)//getting pizza state using useSelector
     const {pizzas,loading,error}=pizzastate //destructuring state
     

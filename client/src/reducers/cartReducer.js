@@ -2,11 +2,19 @@ export const cartReducer = (state = {cartItems:[]},action)=>{
     switch(action.type)
     {
         case "ADD_TO_CART":
+            /*if(action.payload.name==="Custom Fresh pizza"){
+                console.log("name matched")
+                return{
+                    ...state,
+                    cartItems:[...state.cartItems, action.payload]
+                };
+            }*/
             const alreadyexists=state.cartItems.find(
-                (item)=>(item._id===action.payload._id&&item.variant===action.payload.variant)
+                (item)=>(item._id===action.payload._id && item.variant===action.payload.variant)
             )
             if(alreadyexists)
             {
+                console.log("name not matched")
                 return{
                     ...state,
                     cartItems: state.cartItems.map((item) =>
