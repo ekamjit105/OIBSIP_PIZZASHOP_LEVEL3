@@ -42,10 +42,10 @@ const CustomScreen = () => {
             image:"/images/custom.jpg",
             prices:[{"medium":tprice}],
             description:"Base : "+base+", Sauce : "+sauce+", Cheese : "+cheese+", Topping : "+veggies,
-            
+            ingredients:{"base":base,"sauce":sauce,"cheese":cheese,"veggies":veggies}
         }
         var variant="medium";
-        dispatch(addToCart(pobj,1,variant))
+        dispatch(addToCart(pobj,1,variant,true))
       }
 
     const [variant,setVariant]=useState('small')

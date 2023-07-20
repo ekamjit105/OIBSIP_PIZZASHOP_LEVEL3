@@ -24,7 +24,8 @@ const Pizza = ({pobj}) => {
   
   const addToCartHandler =()=>{
     console.log("clicked")
-    dispatch(addToCart(pobj,quantity,variant))
+    const increment = true;
+    dispatch(addToCart(pobj,quantity,variant,increment))
   }
   //this handler function dispatches the addtocart action when the button is clicked
 

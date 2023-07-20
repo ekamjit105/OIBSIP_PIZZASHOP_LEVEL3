@@ -35,6 +35,13 @@ const HomeScreen = () => {
             {loading? <h1>loading....</h1>
                         :error? <h1>Error while loading data</h1>
                             :
+                        
+                        <Container>
+                        <Row>
+                            <a href="/custom">
+                            <img src="/images/home_custom_banner.png" style={{"width":"100%"}}></img>
+                            </a>   
+                        </Row>
                         <Row>
                             {pizzas.map(pizza=>(//callback function pizza=>(...)
                                 <Col md={4} style={{marginBottom:"2%", marginTop:"2%"}}>
@@ -52,6 +59,7 @@ const HomeScreen = () => {
                                 //Therefore <Pizza pobj={pizza}>
                             ))}
                         </Row>
+                        </Container>
             }
         </Container>
     </>

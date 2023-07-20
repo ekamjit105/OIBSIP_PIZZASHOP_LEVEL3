@@ -27,11 +27,11 @@ const CartScreen =()=>{
                             {item.name==="Custom Fresh pizza"?<h6>Description: <br></br>{item.description}</h6>:<h1></h1>}
                             <h5>Quantity : &nbsp;
                             
-                            <FaPlusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.variant))}}/> 
+                            <FaPlusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity+1,item.variant,true))}}/> 
 
                             &nbsp;{item.quantity}&nbsp;
 
-                            <FaMinusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity-1,item.variant))}}/></h5>
+                            <FaMinusCircle style={{cursor:'pointer'}} onClick={()=>{dispatch(addToCart(item,item.quantity-1,item.variant,false))}}/></h5>
                             
                             <h5>Price : {item.prices[0][item.variant]}/- X {item.quantity}</h5><h4>Rs {item.price}/-</h4>
                         
@@ -41,7 +41,7 @@ const CartScreen =()=>{
                         <img src={item.image} alt="" style={{width:'150px', height:'100px'}}></img>
                         </Col>
                         <Col md={1}>
-                        <FaTrash style={{cursor:'pointer'}} onClick={()=>{dispatch(deleteFromCart(item,item.quantity+1,item.variant))}}/>
+                        <FaTrash style={{cursor:'pointer'}} onClick={()=>{dispatch(deleteFromCart(item,item.quantity,item.variant))}}/>
                         </Col>
                     </Row>
                         
