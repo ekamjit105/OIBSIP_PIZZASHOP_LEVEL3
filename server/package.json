@@ -20,6 +20,7 @@
     "git": "^0.1.5",
     "mongoose": "^7.3.4",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.4",
     "nodemon": "^2.0.22",
     "razorpay": "^2.9.1"
   }
