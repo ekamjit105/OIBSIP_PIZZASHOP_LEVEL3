@@ -48,8 +48,8 @@ const CustomScreen = () => {
         dispatch(addToCart(pobj,1,variant,true))
       }
 
-    const [variant,setVariant]=useState('small')
-    const [quantity,setQuantity]=useState(1)
+    //const [variant,setVariant]=useState('small')
+    //const [quantity,setQuantity]=useState(1)
     
 
     const [base,setBase]=useState('classic')

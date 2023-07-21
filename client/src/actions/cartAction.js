@@ -33,7 +33,7 @@ console.log(stockobject)
         console.log("sending stock object..",stockobject)
          
         const response = stockobject?await axios.post("/api/inventory/updatestock",stockobject):{};
-        
+        response=response;
         dispatch({type:"ADD_TO_CART",payload:cartItem})
       } catch (error) {
               console.log("error while updating stock.."+error)  

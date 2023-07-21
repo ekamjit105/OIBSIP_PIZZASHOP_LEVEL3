@@ -12,17 +12,24 @@ const Checkout = ({subTotal}) => {
     //currentUser?window.location.href="/login":console.log()
     
 
+    const dispatch = useDispatch()
     const cartState=useSelector((state)=>state.cartReducer)
     const {cartItems} = cartState
-     
-    const dispatch = useDispatch()
+    //
+    //const stock = useSelector((state)=>state.getAllStockReducer);
+    //console.log(" Recieved stock state on reaching checkout page..",stock)    
+
+
     const orderHandler=(razorpay_payment_id,cartItems,subTotal)=>{
       dispatch(createOrder(razorpay_payment_id,cartItems,subTotal))
     }
 
+
     const Razorpay = useRazorpay();
     const handlePayment = () => {
         //const order = await createOrder(params);
+        
+        
         if(currentUser==null)
         {
           window.location.href="/login"
@@ -40,7 +47,7 @@ const Checkout = ({subTotal}) => {
         //order_id: "12345",
         handler: (res) => {
           orderHandler(res.razorpay_payment_id,cartItems,subTotal);
-        },
+         },
         prefill: {
           name: currentUser.name,
           email: currentUser.email,

@@ -25,10 +25,14 @@ return (
             <Col md={4}>
               <h4>Items :</h4>
               {order.orderItems.map((item) => (
-                <h6 key={item.name}>
-                  {item.name} ({item.variant}) x {item.quantity} ={" "}
+                <h5 key={item.name}>
+                 {item.name} ({item.variant}) x {item.quantity} ={" "}
+                            
+                 
                   Rs {item.price}/-
-                </h6>
+                  {item.name==="Custom Fresh pizza"?<h6>Description: <br></br>{item.description}</h6>:<h1></h1>}
+                 
+                </h5>
               ))}
             </Col>
             <Col md={3}>

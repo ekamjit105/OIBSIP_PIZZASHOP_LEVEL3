@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import { Row, Col, Container, Button, ButtonGroup } from "react-bootstrap";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import AddNewPizza from "../components/Admin/AddNewPizza";
 import OrderList from "../components/Admin/OrderList";
 import Pizzaslist from "../components/Admin/Pizzaslist";
 import Userlist from "../components/Admin/Userlist";
 import EditPizza from "./../components/Admin/EditPizza";
-import inventory from "../components/Admin/Inventory";
-import { getAllStock } from "../actions/inventoryAction";
 import Inventory from "../components/Admin/Inventory";
 
 const AdminScreen = ({ history }) => {

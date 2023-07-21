@@ -4,15 +4,8 @@ var nodemailer = require('nodemailer');
 
 //SEND MAIL || @POST REQUEST
 router.post("/sendmail", async (req, res) => {
-  const objto = req.body["to"];
-  const objsubject = req.body["subject"];
-  const objtext = req.body["text"];
-  
-  console.log("objto : ",objto)
-  console.log("objsubject : ",objsubject)
-  console.log("objtext : ",objtext)
-  console.log("IN MAILER ROUTE ... ", req.body)  ;
-  
+
+ const {to,subject,text} = req.body;
   try{
 
         var transporter = nodemailer.createTransport({
@@ -26,9 +19,9 @@ router.post("/sendmail", async (req, res) => {
 
         var mailOptions = {
         from: 'ekamjits105@gmail.com',
-        to: objto,
-        subject: objsubject,
-        text: objtext
+        to: to,
+        subject: subject,
+        text: text
         };
 
         transporter.sendMail(mailOptions, function(error, info){
