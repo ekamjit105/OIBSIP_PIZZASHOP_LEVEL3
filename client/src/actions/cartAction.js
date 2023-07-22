@@ -21,8 +21,6 @@ export const addToCart = (pizza,quantity,variant,increment)=>async(dispatch,getS
       veggies:pizza.ingredients["veggies"], 
       qty:increment?-1*(quantity/quantity):(quantity/quantity)}
     }
-console.log("stockobject created")
-console.log(stockobject)
 
     if(quantity<1)
     {
@@ -30,8 +28,7 @@ console.log(stockobject)
     
       if(pizza.ingredients)//custom pizza
       {try {
-        console.log("sending stock object..",stockobject)
-         
+        
         const response = stockobject?await axios.post("/api/inventory/updatestock",stockobject):{};
         response=response;
         dispatch({type:"ADD_TO_CART",payload:cartItem})
@@ -50,7 +47,6 @@ console.log(stockobject)
     
 
         try {
-          console.log("sending stock object..",stockobject)
            
           const response = stockobject?await axios.post("/api/inventory/updatestock",stockobject):{};
           
@@ -86,7 +82,6 @@ export const deleteFromCart = (pizza,quantity,variant) =>async(dispatch,getState
         
         
         try {
-        console.log("sending stock object..",stockobject)
          
         const response = stockobject?await axios.post("/api/inventory/updatestock",stockobject):{};
         

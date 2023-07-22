@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
+const OTP = require("../models/OTPModel")
 
 router.post("/register", async (req, res) => {
  
@@ -9,7 +10,6 @@ router.post("/register", async (req, res) => {
 
   try {
         newuser.save()
-        console.log("user saved ... from route")
         res.status(200).json({
           success:true,
           message:"Register Success"
@@ -62,6 +62,80 @@ router.post("/deleteuser", async (req, res) => {
     res.status(404).json({ message: error.stack });
   }
 });
+
+
+router.post('/finduser',async(req,res)=>{
+  
+  const {email} = req.body;
+  
+  try{
+    const user = await User.findOne({email:email});
+    
+    if(user)
+    {res.status(200).send({exists:true})
+    }
+    else{
+      res.status(200).send({exists:false})
+    }
+  }
+  catch(e)
+  {
+    res.status(404).send({exists:false})
+  }
+})
+
+
+router.post('/saveOTP',async(req,res)=>{
+  
+  const {email,rcdOTP} = req.body;
+  
+  
+  try{
+    const user = await OTP.findOne({email:email});
+    if(user)
+    {
+      (user.OTP=req.body.OTP)
+      await user.save();
+    }
+    else{
+      const newuser = new OTP(req.body)
+      await newuser.save();
+    }
+    res.status(200).send({})
+  }
+  catch(e)
+  {
+    res.status(404).send({})
+  }
+})
+
+
+router.post('/validateOTP',async(req,res)=>{
+  
+  const {email,rcdOTP} = req.body;
+  try{
+    const user = await OTP.find({email:req.body.email,OTP:req.body.OTP});
+    var password= ""
+    var resobj;
+    if(user)
+    {
+      const userdetails = await User.findOne({email:email});
+      resobj = {matched:true, password:userdetails.password}
+    }
+    else{
+      resobj = {matched:true, password:password}
+    }
+    res.status(200).send(resobj)
+  }
+  catch(e)
+  {
+    res.status(404).send({})
+  }
+})
+
+
+
+
 
 
 

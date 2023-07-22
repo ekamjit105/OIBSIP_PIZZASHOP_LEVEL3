@@ -47,7 +47,7 @@ export const addPizza = (pizza) => async (dispatch) => {
       await axios.post("/api/pizzas/deletepizza", { pizzaId });
       //swal("Pizza Deleted Succss!", "success");
       window.location.href = "/admin/pizzalist";
-      // console.log(res);
+      
     } catch (error) {
       //swal("Errro While Deleteing Pizza");
     }

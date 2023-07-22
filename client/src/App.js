@@ -13,6 +13,7 @@ import LoginScreen from "./screens/LoginScreen";
 import OrdersScreen from "./screens/OrdersScreen";
 import AdminScreen from "./screens/AdminScreen";
 import CustomScreen from "./screens/CustomScreen";
+import ResetScreen from "./screens/ResetScreen";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" component={RegisterScreen} exact/>
         <Route path="/login" component={LoginScreen} exact/>
         <Route path="/myorders" component={OrdersScreen} exact/>
+        <Route path="/reset-password" component={ResetScreen} exact/>
       </Switch>
     </BrowserRouter>
   );

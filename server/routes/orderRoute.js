@@ -48,16 +48,8 @@ router.get("/alluserorder", async (req, res) => {
 router.post("/deliverorder", async (req, res) => {
   const orderid = req.body.orderid;
   try {
-    console.log("orderid: ")
-    console.log(orderid)
     const order = await Order.findOne({ _id: orderid });
-    //console.log("order")
-    console.log(order)
-    //colsole.log("is delivered:")
-    //console.log(order.isDelivered)
     order.isDelivered = true;
-    console.log("NEW ORDER")
-    console.log(order)
     await order.save();
     res.status(200).send("Order deliverd success");
   } catch (error) {

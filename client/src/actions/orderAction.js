@@ -23,11 +23,10 @@ export const createOrder = (razorpay_payment_id,cartItems, subTotal) =>async(dis
     try {
       const response = await axios.get("/api/inventory/getAllStock");
         //will continue after the above request is successfully served at the pizzaRouter.js
-        console.log("stock from order action")
-        console.log(response.data)
+        
         dispatch({type:"GET_STOCK_SUCCESS", payload:response.data})
         const {stock} = getState().getAllStockReducer
-        console.log(stock);
+        
 
 
         //calculating LOW stock
@@ -37,7 +36,6 @@ export const createOrder = (razorpay_payment_id,cartItems, subTotal) =>async(dis
         {
           var type=stock[i].name;
           s+=type+" : ";
-          console.log("type : "+type)
           
           var obj = stock[i].varqty[0];
 
@@ -47,18 +45,15 @@ export const createOrder = (razorpay_payment_id,cartItems, subTotal) =>async(dis
             var name = Object.keys(obj)[j];
               
             var value = obj[Object.keys(obj)[j]];
-            console.log("name : "+name+" value : "+value)
             
             if(value<=10 && value!=null)
             {
-              console.log("low");
               s+=name+"("+value+") ";
             }
           }
           s+="    \n";
         }
 
-        console.log("Stock Report......" , s)
 
 
 

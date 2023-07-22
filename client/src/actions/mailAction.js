@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const sendMail = (mailobj) =>async(dispatch)=>{
     
-    console.log("recieved Object..", mailobj); 
     
     dispatch({ type: "SEND_MAIL_REQUEST" });
     try{

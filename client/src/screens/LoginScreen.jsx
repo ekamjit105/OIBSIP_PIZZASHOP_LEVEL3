@@ -35,6 +35,8 @@ const LoginScreen = () => {
         <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
       </Form.Group>
      
+      <a href="/reset-password">Forgot password</a>
+      <br></br><br></br>
       <Button variant="primary" onClick={loginHandler}>
         Submit
       </Button>

@@ -5,12 +5,10 @@ const pizzaModel = require("../models/pizzaModel");
 //GET ALL PIZZA || @GET REQUEST
 router.get("/getAllPizzas", async (req, res) => {
   try {
-    console.log("before")
     const pizzas = await pizzaModel.find({});
     res.send(pizzas);
   } catch (error) {
     res.json({ message: error });
-    console.log("hello here")
   }
 });
 
