@@ -17,7 +17,7 @@ const NavBar = () => {
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
         <Navbar.Brand href="/">
-        <img src='images/logo1.png' style={{height:"50px"}} alt="logo"/>
+        <img src='../images/logo1.png' style={{height:"50px"}} alt="logo"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

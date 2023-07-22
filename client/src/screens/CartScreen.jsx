@@ -16,10 +16,10 @@ const CartScreen =()=>{
         <>
             
             <Container>
-                <Row><Col md={7}>
+                <Row style={{"marginTop":"2%"}}><Col md={7}>
                 <h1> My Cart</h1>
                     <br/>
-                    {cartItems.map((item)=>(
+                    {cartItems.length!=0?cartItems.map((item)=>(
                         
                         <Row style={{backgroundColor:'lightgrey', margin:'2%', padding:'2%'}}>
                         <Col md={7}>
@@ -46,7 +46,7 @@ const CartScreen =()=>{
                     </Row>
                         
 
-                    ))}
+                    )):<h2 style={{"margin-top":"10%"}}><center>OOPS! Your Cart is empty <br></br><h4> Go to <a href="/myorders"> My Orders </a> to check your orders</h4></center></h2>}
                     
                 </Col>
                 

@@ -16,7 +16,6 @@ export const createOrder = (razorpay_payment_id,cartItems, subTotal) =>async(dis
     try {
         const response = await axios.post("/api/orders/placeOrder",order)
         dispatch({type: "ORDER_CREATE_SUCCESS",payload:response.data})
-        localStorage.setItem("cartItems",[])
     } catch (error) {
         dispatch({type:"ORDER_CREATE_FAIL",payload:error})        
     }
@@ -76,13 +75,15 @@ export const createOrder = (razorpay_payment_id,cartItems, subTotal) =>async(dis
         dispatch({ type: "SEND_MAIL_SUCCESS" });  
         //empty the cart
         
-        localStorage.setItem("cartItems",[])
-        window.location.href="/"
+        //localStorage.setItem("cartItems",[])
+        //window.location.href="/myorders"
         
     } catch (error) {
         dispatch({type:"ORDER_CREATE_FAIL",payload:error})        
     }
 
+    localStorage.setItem("cartItems",[])
+    window.location.href='/cart'
 
 }
 

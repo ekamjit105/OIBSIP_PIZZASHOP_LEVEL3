@@ -22,6 +22,7 @@ const Checkout = ({subTotal}) => {
 
     const orderHandler=(razorpay_payment_id,cartItems,subTotal)=>{
       dispatch(createOrder(razorpay_payment_id,cartItems,subTotal))
+      //window.location.href = "/myorders"
     }
 
 
