@@ -113,17 +113,22 @@ router.post('/saveOTP',async(req,res)=>{
 router.post('/validateOTP',async(req,res)=>{
   
   const {email,rcdOTP} = req.body;
+  
+
   try{
-    const user = await OTP.find({email:req.body.email,OTP:req.body.OTP});
+    const validotp = await OTP.find({email:req.body.email,OTP:req.body.OTP});
     var password= ""
     var resobj;
-    if(user)
+    if(validotp)
     {
       const userdetails = await User.findOne({email:email});
+      if(userdetails)
       resobj = {matched:true, password:userdetails.password}
+      else
+      resobj = {matched:true, password:password}
     }
     else{
-      resobj = {matched:true, password:password}
+      resobj = {matched:false, password:password}
     }
     res.status(200).send(resobj)
   }

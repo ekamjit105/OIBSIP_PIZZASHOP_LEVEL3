@@ -15,7 +15,7 @@ const LoginScreen = () => {
   const loginHandler=()=>{
     const user = {email,password}
     dispatch(loginUser(user))
-    success?alert('user successfully logged in'):error?alert("error in logging in",error):console.log()
+    success?alert('Successfully logged in'):error?alert("error in logging in",error):console.log()
   }
 
   return (
